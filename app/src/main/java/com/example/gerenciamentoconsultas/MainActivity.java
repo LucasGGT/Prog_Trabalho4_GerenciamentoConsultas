@@ -80,7 +80,10 @@ public class MainActivity extends AppCompatActivity {
         sql.append(");");
 
         try {
-            db.execSQL(sql.toString());
+            String[] queries = sql.toString().split(";");
+            for(String query : queries) {
+                db.execSQL(sql.toString());
+            }
         } catch (SQLException e) {
             Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
