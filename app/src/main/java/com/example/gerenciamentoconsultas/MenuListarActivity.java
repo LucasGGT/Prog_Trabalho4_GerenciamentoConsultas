@@ -22,5 +22,14 @@ public class MenuListarActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        Button clickListPac = findViewById(R.id.btnListPaciente);
+        clickListPac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ListarPacienteActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

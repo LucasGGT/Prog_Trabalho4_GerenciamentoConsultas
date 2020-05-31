@@ -67,7 +67,7 @@ public class ListarMedicoActivity extends AppCompatActivity {
                     R.id.tvListMedCid, R.id.tvListMedUf, R.id.tvListMedCel, R.id.tvListMedFixo};
 
         SimpleCursorAdapter scAdapter =
-                new SimpleCursorAdapter(getApplicationContext(), R.layout.dados, dados, from, to, 0);
+                new SimpleCursorAdapter(getApplicationContext(), R.layout.dados_medico, dados, from, to, 0);
 
         lvMedic.setAdapter(scAdapter);
         db.close();

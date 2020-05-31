@@ -23,13 +23,13 @@ public class MenuAdicionarActivity extends AppCompatActivity {
             }
         });
 
-//        Button clickListar = findViewById(R.id.btnListar);
-//        clickListar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getApplicationContext(), MenuListarActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        Button clickAdicionarPac = findViewById(R.id.btnAddPaciente);
+        clickAdicionarPac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), AdicionarPacienteActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

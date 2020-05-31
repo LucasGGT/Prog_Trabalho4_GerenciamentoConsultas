@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         sql.append("CREATE TABLE IF NOT EXISTS paciente (");
         sql.append("_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ");
         sql.append("nome VARCHAR(50), ");
-        sql.append("grp_sanguineo TINYINT(1), ");
+        sql.append("grp_sanguineo VARCHAR(2), ");
         sql.append("logradouro VARCHAR(100), ");
         sql.append("numero MEDIUMINT(8), ");
         sql.append("cidade VARCHAR(30), ");
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             String[] queries = sql.toString().split(";");
             for(String query : queries) {
-                db.execSQL(sql.toString());
+                db.execSQL(query);
             }
         } catch (SQLException e) {
             Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
