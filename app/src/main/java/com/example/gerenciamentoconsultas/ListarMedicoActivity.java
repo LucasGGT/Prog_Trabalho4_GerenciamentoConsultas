@@ -44,13 +44,13 @@ public class ListarMedicoActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), EditarMedicoActivity.class);
                 i.putExtra("id", tvListMedId.getText().toString());
                 i.putExtra("nome", tvListMedNome.getText().toString());
-                i.putExtra("idade", tvListMedCrm.getText().toString());
-                i.putExtra("curso", tvListMedLogr.getText().toString());
-                i.putExtra("id", tvListMedNum.getText().toString());
-                i.putExtra("nome", tvListMedCid.getText().toString());
-                i.putExtra("idade", tvListMedUf.getText().toString());
-                i.putExtra("curso", tvListMedCel.getText().toString());
-                i.putExtra("curso", tvListMedFixo.getText().toString());
+                i.putExtra("crm", tvListMedCrm.getText().toString());
+                i.putExtra("logr", tvListMedLogr.getText().toString());
+                i.putExtra("num", tvListMedNum.getText().toString());
+                i.putExtra("cid", tvListMedCid.getText().toString());
+                i.putExtra("uf", tvListMedUf.getText().toString());
+                i.putExtra("cel", tvListMedCel.getText().toString());
+                i.putExtra("fixo", tvListMedFixo.getText().toString());
 
                 startActivity(i);
             }
