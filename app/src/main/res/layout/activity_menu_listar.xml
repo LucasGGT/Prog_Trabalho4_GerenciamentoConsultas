@@ -46,7 +46,7 @@
                 android:textSize="16dp" />
 
             <Button
-                android:id="@+id/Paciente"
+                android:id="@+id/btnListPaciente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
