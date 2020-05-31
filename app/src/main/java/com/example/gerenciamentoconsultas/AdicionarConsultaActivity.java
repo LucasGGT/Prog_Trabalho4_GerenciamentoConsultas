@@ -3,6 +3,7 @@ package com.example.gerenciamentoconsultas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,43 +14,27 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class AdicionarMedicoActivity extends AppCompatActivity {
+public class AdicionarConsultaActivity extends AppCompatActivity {
 
     SQLiteDatabase db;
-    EditText etNome;
-    EditText etCrm;
-    EditText etLogr;
-    EditText etNum;
-    EditText etCid;
-    EditText etCel;
-    EditText etFixo;
-    Spinner spUf;
+    EditText spPac;
+    EditText spMed;
+    EditText etDatIni;
+    EditText etDatFim;
+    EditText etObs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adicionar_medico);
+        setContentView(R.layout.activity_adicionar_consulta);
 
-        etNome = findViewById(R.id.etNome);
-        etCrm = findViewById(R.id.etCrm);
-        etLogr = findViewById(R.id.etLogr);
-        etNum = findViewById(R.id.etNum);
-        etCid = findViewById(R.id.etCid);
-        etCel = findViewById(R.id.etCel);
-        etFixo = findViewById(R.id.etFixo);
-        spUf = findViewById(R.id.spUf);
+        etDatIni = findViewById(R.id.etAddConDatIni);
+        etDatFim = findViewById(R.id.etAddConDatFim);
+        etObs = findViewById(R.id.etAddConObs);
+        spPac = findViewById(R.id.etAddConPac);
+        spMed = findViewById(R.id.etAddConMed);
 
-        String[] ufs = new String[] {
-                "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
-                "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI",
-                "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
-        };
-
-        ArrayAdapter<String> spArrayAdapter =
-                new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, ufs);
-        spUf.setAdapter(spArrayAdapter);
-
-        Button clickAdicionar = findViewById(R.id.btnAdicionarMedico);
+        Button clickAdicionar = findViewById(R.id.btnAdicionarConsulta);
         clickAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,16 +44,14 @@ public class AdicionarMedicoActivity extends AppCompatActivity {
     }
 
     private void salvarBD () {
-        String nome = etNome.getText().toString().trim();
-        String crm = etCrm.getText().toString().trim();
-        String logr = etLogr.getText().toString().trim();
-        String num = etNum.getText().toString().trim();
-        String cid = etCid.getText().toString().trim();
-        String cel = etCel.getText().toString().trim();
-        String fixo = etFixo.getText().toString().trim();
+        String datIni = etDatIni.getText().toString().trim();
+        String datFim = etDatFim.getText().toString().trim();
+        String obs = etObs.getText().toString().trim();
+        String pac = spPac.getText().toString().trim();
+        String med = spMed.getText().toString().trim();
 
-        if(nome.equals("") || crm.equals("") || logr.equals("") || num.equals("") ||
-           cid.equals("") || cel.equals("") || fixo.equals("")) {
+        if(datIni.equals("") || datFim.equals("") || obs.equals("") || pac.equals("") ||
+                med.equals("")) {
             Toast.makeText(getApplicationContext(), "Por favor, informe todos os dados corretamente!", Toast.LENGTH_LONG).show();
         } else {
             db = openOrCreateDatabase("consulta.db", Context.MODE_PRIVATE, null);
